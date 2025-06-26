@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitación Cumpleaños Manolo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #111;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-image: url('img/0.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        section {
+            padding: 2rem 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .evento {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+
+        .galeria,
+        .outfits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .galeria img,
+        .outfits img {
+            width: 100%;
+            height: auto;
+            max-height: 470px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .galeria img:hover,
+        .outfits img:hover {
+            transform: scale(1.05);
+        }
+
+        .countdown {
+            font-size: 1.8rem;
+            text-align: center;
+            margin: 2rem 0;
+            background-color: #222;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+
+            100% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        form {
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+
+        form h2 {
+            margin-bottom: 1rem;
+        }
+
+        form input,
+        form button {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        form input {
+            background-color: #333;
+            color: white;
+        }
+
+        form button {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background-color: #ddd;
+        }
+
+        #mensaje-exito {
+            text-align: center;
+            color: #0f0;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+                padding: 1rem;
+            }
+
+            .countdown {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>¡Te invito a festejar mi cumpleaños!<br>#50<br>Te esperamos</h1>
+    </header>
+
+    <section class="evento">
+        <h2>📍 Dirección</h2>
+        <p>Ramón Sánchez #18, Col. Mariano Escobedo</p>
+        <h2>📅 Fecha</h2>
+        <p>12 de julio, 3:00 PM</p>
+        <h2>🎽 Código de vestimenta</h2>
+        <p>Blanco y negro</p>
+    </section>
+
+    <section class="countdown" id="countdown">
+        Cargando contador...
+    </section>
+
+    <section>
+        <h2>📸 El cumpleañero</h2>
+        <div class="galeria">
+            <img src="img/8.jpg" alt="Foto 1">
+            <img src="img/9.jpg" alt="Foto 2">
+            <img src="img/0.jpg" alt="Foto 3">
+        </div>
+    </section>
+
+    <section>
+        <h2>👕 Ejemplos de Outfit (Hombres)</h2>
+        <div class="outfits">
+            <img src="img/1.jpg" alt="Outfit Hombre 1">
+            <img src="img/2.jpg" alt="Outfit Hombre 2">
+            <img src="img/3.jpg" alt="Outfit Hombre 3">
+        </div>
+    </section>
+
+    <section>
+        <h2>👗 Ejemplos de Outfit (Mujeres)</h2>
+        <div class="outfits">
+            <img src="img/mujer1.jpg" alt="Outfit Mujer 1">
+            <img src="img/5.jpg"Outfit Mujer 2">
+            <img src="img/img3.jpg" alt="Outfit Mujer 3">
+        </div>
+    </section>
+
+    <section>
+        <form id="registro-form" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+            <h2>Confirma tu Asistencia</h2>
+            <input type="text" name="Familia" placeholder="Nombre de la familia" required>
+            <input type="number" name="Personas" placeholder="Número de personas" required>
+            <button type="submit">Registrar</button>
+        </form>
+        <div id="mensaje-exito">¡Gracias por registrarte! 😄</div>
+    </section>
+
+    <script>
+        const evento = new Date("2025-07-12T15:00:00");
+        const countdownEl = document.getElementById("countdown");
+
+        function actualizarContador() {
+            const ahora = new Date();
+            const diferencia = evento - ahora;
+            if (diferencia <= 0) {
+                countdownEl.innerHTML = "¡Hoy es el gran día! 🎉";
+                return;
+            }
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+            const segundos = Math.floor((diferencia / 1000) % 60);
+            countdownEl.innerHTML = `Faltan ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+        }
+        setInterval(actualizarContador, 1000);
+        actualizarContador();
+
+        document.getElementById("registro-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const form = this;
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = "none";
+                    document.getElementById("mensaje-exito").style.display = "block";
+                } else {
+                    alert("Hubo un error. Inténtalo de nuevo.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
